@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hessen City – Deutsches GTA-Roleplay</title>
+<meta name="description" content="Hessen City: GTA-Roleplay mit deutschen Behörden und Diensten. Eigene Fraktion kostenlos, mit Anwesen und Fahrzeugen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap"></noscript>
+<style>
+:root{
+  --bg:#0d0c11; --bg2:#14121a; --fg:#ece8f2; --mute:#9b95a9; --rule:#2c2935;
+  --accent:#a066ff; --accent-fg:#0d0c11; --frame:#000000;
+  --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --text:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{background:#0d0c11;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.62 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* Filmkorn */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+::selection{background:var(--accent);color:var(--accent-fg)}
+
+/* Kopf */
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.mark{font:700 1.55rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--accent)}
+.mark b{color:#fff;font-weight:700}
+.nav{display:flex;gap:30px;align-items:center}
+.nav a:not(.btn){font:600 .8rem/1 var(--display);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--mute);position:relative;padding:6px 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--accent);transition:right .25s ease}
+.nav a:not(.btn):hover{color:var(--fg)}
+.nav a:not(.btn):hover::after{right:0}
+.btn{display:inline-flex;align-items:center;gap:12px;font:700 .95rem/1 var(--display);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:16px 22px 15px;border:2px solid var(--accent);background:var(--accent);color:var(--accent-fg);transition:background .2s,color .2s}
+.btn i{font-style:normal;display:inline-block;transition:transform .25s ease}
+.btn:hover{background:transparent;color:var(--accent)}
+.btn:hover i{transform:translateX(5px)}
+.btn.line{background:transparent;color:var(--fg);border-color:var(--rule)}
+.btn.line:hover{border-color:var(--fg);color:var(--fg)}
+.top .btn{padding:11px 16px 10px;font-size:.82rem}
+
+/* Hero */
+.hero{padding:clamp(34px,5vw,64px) 0 clamp(40px,6vw,76px)}
+.kicker{display:flex;align-items:center;gap:14px;font:600 .82rem/1 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 20px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--accent)}
+h1{font:700 clamp(3.1rem,9.8vw,8.6rem)/.84 var(--display);letter-spacing:-.008em;text-transform:uppercase;margin:0 0 clamp(30px,4.5vw,56px);text-wrap:balance}
+h1 span{color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+.lead{font-size:1.22rem;line-height:1.55;max-width:32ch;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.stats div{padding:18px 0 0}
+.stats div+div{padding-left:24px;border-left:1px solid var(--rule)}
+.stats strong{display:block;font:700 clamp(2.4rem,4.6vw,3.6rem)/.9 var(--display);text-transform:uppercase;color:var(--fg)}
+.stats span{display:block;margin-top:8px;font:600 .74rem/1.3 var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.shot{position:relative}
+.screen{position:relative;line-height:0;background:transparent;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent),linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);
+  mask-composite:intersect}
+.screen img{width:100%}
+
+/* Laufband */
+.band{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;background:var(--bg2)}
+.band .track{display:flex;width:max-content;animation:run 46s linear infinite}
+.band span{font:700 clamp(1.3rem,2.6vw,1.9rem)/1 var(--display);letter-spacing:.14em;text-transform:uppercase;padding:20px 0 18px;white-space:nowrap}
+.band span::after{content:"";display:inline-block;width:.42em;height:.42em;background:var(--accent);margin:0 1.6em;transform:translateY(-.1em)}
+@keyframes run{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.band .track{animation:none}html{scroll-behavior:auto}}
+
+/* Fakten */
+.glance{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(20px,5vw,72px);padding:clamp(44px,6vw,80px) 0}
+.label{font:600 .85rem/1.2 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0}
+.facts{margin:0;border-top:2px solid var(--fg)}
+.facts div{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font:600 .85rem/1.6 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.facts dd{margin:0}
+.facts a{text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:2px}
+.facts .open{font-weight:600}
+.facts .open::before{content:"";display:inline-block;width:.6em;height:.6em;background:var(--accent);margin-right:.6em;transform:translateY(-.05em)}
+
+/* Abschnitte */
+section.blk{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(20px,5vw,72px);padding:clamp(48px,7vw,96px) 0;border-top:1px solid var(--rule)}
+.num{font:700 clamp(4rem,9vw,8rem)/.8 var(--display);color:transparent;-webkit-text-stroke:2px var(--accent);position:sticky;top:24px;align-self:start}
+h2{font:700 clamp(2.2rem,5vw,4rem)/.95 var(--display);text-transform:uppercase;margin:0 0 24px;max-width:15ch;text-wrap:balance}
+.blk p{max-width:58ch;margin:0 0 16px}
+.blk p.big{font-size:1.3rem;line-height:1.5}
+.eg{margin:28px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:0 28px;border-top:1px solid var(--rule)}
+.eg li{font:600 1.05rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;padding:16px 28px 15px 0;border-bottom:1px solid var(--rule)}
+.note{font-size:.92rem;color:var(--mute);margin-top:14px!important}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:32px;border-top:2px solid var(--fg)}
+.three div{padding:20px 22px 8px 0;margin-right:22px;border-right:1px solid var(--rule)}
+.three div:last-child{border-right:0;margin-right:0}
+.three h3{font:700 1.6rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+.three p{margin:0 0 14px;font-size:1rem;color:var(--mute)}
+
+/* Bilder */
+.pics{display:grid;gap:12px;margin-top:38px}
+.pic{position:relative;margin:0;overflow:hidden;background:var(--frame);border:1px solid var(--rule)}
+.pic img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(.92);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pic:hover img{transform:scale(1.035)}
+.pic::after{content:"";position:absolute;left:0;bottom:0;width:20px;height:20px;background:var(--accent)}
+.pics.p1{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);height:clamp(150px,22vw,270px)}
+.pics.p2{grid-template-columns:minmax(0,1fr) minmax(0,2.7fr);height:clamp(210px,34vw,400px)}
+.pics.p3{grid-template-columns:1fr;height:clamp(170px,30vw,340px)}
+
+/* Discord */
+.join{background:var(--fg);color:var(--bg)}
+.join .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-top:clamp(44px,7vw,84px);padding-bottom:clamp(44px,7vw,84px)}
+.join h2{color:var(--bg);margin:0;max-width:11ch;font-size:clamp(2.6rem,6.4vw,5.2rem)}
+.join p{margin:16px 0 0;max-width:40ch;opacity:.78}
+.join .btn{background:var(--bg);color:var(--fg);border-color:var(--bg);font-size:1.1rem;padding:19px 28px 18px}
+.join .btn:hover{background:transparent;color:var(--bg)}
+.join .url{display:block;font:500 .9rem/1 var(--text);margin-top:14px;opacity:.7}
+
+/* Fuß */
+footer{overflow:hidden;border-top:1px solid var(--rule)}
+footer .small{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;padding:30px 0 0;font-size:.88rem;color:var(--mute)}
+footer .small p{margin:0;max-width:70ch}
+.wordmark{display:block;width:96vw;height:auto;margin:clamp(18px,3vw,36px) auto 0;user-select:none}
+.wordmark text{font-family:var(--display);font-weight:700;font-size:205px}
+
+/* Einblenden */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero .shot{order:-1}
+  .glance,section.blk{grid-template-columns:minmax(0,1fr);gap:14px}
+  .num{position:static}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .three div{border-right:0;margin-right:0;border-bottom:1px solid var(--rule);padding-right:0}
+  .three div:last-child{border-bottom:0}
+  .nav a.hide{display:none}
+}
+@media (max-width:560px){
+  .facts div{grid-template-columns:1fr;gap:4px}
+  .nav{gap:16px}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#oben">Hessen <b>City</b></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="hide" href="#behoerden">Behörden</a>
+      <a class="hide" href="#fraktion">Fraktionen</a>
+      <a class="hide" href="#release">Release</a>
+      <a class="btn" href="https://discord.gg/cbnZxhfWUc" target="_blank" rel="noopener">Discord</a>
+    </nav>
+  </header>
+
+  <main id="oben">
+    <div class="hero">
+      <p class="kicker">GTA-Roleplay · Deutsch</p>
+      <h1>Eine deutsche Stadt. <span>Deine Fraktion.</span></h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lead">Hessen City ist ein Roleplay-Server mit deutschen Behörden und Diensten. Gründe kostenlos deine eigene Fraktion – mit Anwesen, Fahrzeugen und allem, was dazugehört.</p>
+          <div class="cta">
+            <a class="btn" href="https://discord.gg/cbnZxhfWUc" target="_blank" rel="noopener">Zum Discord <i>→</i></a>
+            <a class="btn line" href="#server">Mehr erfahren</a>
+          </div>
+          <div class="stats">
+            <div><strong>0 €</strong><span>Eigene Fraktion gründen</span></div>
+            <div><strong>Offen</strong><span>Release-Termin</span></div>
+          </div>
+        </div>
+        <div class="shot">
+          <div class="screen">
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="assets/poster.jpg">
+              <img src="assets/hessen-city.gif" width="507" height="331" alt="Animiertes Logo: HC-Logo und der Schriftzug „Hessen City“ in Weiß und Violett">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="band" aria-hidden="true">
+  <div class="track">
+    <span>Polizei</span><span>Behörden</span><span>Dienste</span><span>Eigene Fraktion</span><span>Anwesen</span><span>Fahrzeuge</span><span>Kostenlos</span>
+    <span>Polizei</span><span>Behörden</span><span>Dienste</span><span>Eigene Fraktion</span><span>Anwesen</span><span>Fahrzeuge</span><span>Kostenlos</span>
+  </div>
+</div>
+
+<div class="wrap">
+    <div class="glance rv" id="server">
+      <p class="label">Auf einen Blick</p>
+      <dl class="facts">
+        <div><dt>Spiel</dt><dd>GTA V mit FiveM</dd></div>
+        <div><dt>Sprache</dt><dd>Deutsch</dd></div>
+        <div><dt>Behörden &amp; Dienste</dt><dd>Nach deutschem Vorbild</dd></div>
+        <div><dt>Fraktionen</dt><dd>Kostenlos, mit Anwesen und Fahrzeugen</dd></div>
+        <div><dt>Release</dt><dd class="open">Termin steht noch nicht fest</dd></div>
+        <div><dt>Community</dt><dd><a href="https://discord.gg/cbnZxhfWUc" target="_blank" rel="noopener">Discord</a></dd></div>
+      </dl>
+    </div>
+
+    <section class="blk" id="behoerden">
+      <div class="num">01</div>
+      <div class="rv">
+        <h2>Behörden und Dienste wie in Deutschland</h2>
+        <p class="big">Auf Hessen City gibt es keine amerikanische Polizei und keinen Sheriff. Die Stellen, mit denen du es im Spiel zu tun hast, sind an Deutschland angelehnt.</p>
+        <p>Du kannst im Staatsdienst spielen oder als Bürger mit ihm zu tun bekommen. Beides gehört zum Rollenspiel.</p>
+        <ul class="eg" aria-label="Beispiele">
+          <li>Polizei</li><li>Feuerwehr</li><li>Rettungsdienst</li>
+        </ul>
+        <p class="note">Beispiele. Welche Stellen zum Start besetzt werden, steht noch nicht fest.</p>
+        <div class="pics p1"><figure class="pic"><img src="assets/bild-2.jpg" alt="Zwei Polizisten von hinten" style="object-position:50% 40%"></figure><figure class="pic"><img src="assets/bild-3.jpg" alt="Zwei Polizisten mit Barett an einer Brücke" style="object-position:50% 40%"></figure></div>
+      </div>
+    </section>
+
+    <section class="blk" id="fraktion">
+      <div class="num">02</div>
+      <div class="rv">
+        <h2>Eine eigene Fraktion. Gratis.</h2>
+        <p class="big">Du musst keiner bestehenden Gruppe beitreten. Gründe deine eigene, ohne dafür zu zahlen.</p>
+        <div class="three">
+          <div><h3>Anwesen</h3><p>Ein eigener Sitz für deine Fraktion, als Treffpunkt und Hauptquartier.</p></div>
+          <div><h3>Fahrzeuge</h3><p>Eigene Autos für deine Leute, vom Alltagswagen bis zum Auftritt.</p></div>
+          <div><h3>Und mehr</h3><p>Dazu kommt, was eine Fraktion sonst braucht. Einzelheiten folgen.</p></div>
+        </div>
+        <div class="pics p2"><figure class="pic"><img src="assets/bild-1.jpg" alt="Charakter im beigen Hemd mit Tattoos" style="object-position:50% 12%"></figure><figure class="pic"><img src="assets/bild-5.jpg" alt="Drei maskierte Charaktere" style="object-position:50% 35%"></figure></div>
+      </div>
+    </section>
+
+    <section class="blk" id="release">
+      <div class="num">03</div>
+      <div class="rv">
+        <h2>Release: noch kein Termin</h2>
+        <p class="big">Wir nennen erst ein Datum, wenn es wirklich steht.</p>
+        <p>Neuigkeiten und alles Weitere zum Start gibt es im Discord.</p>
+        <div class="pics p3"><figure class="pic"><img src="assets/bild-4.jpg" alt="Einsatzkräfte mit Schutzschild" style="object-position:50% 35%"></figure></div>
+      </div>
+    </section>
+</div>
+
+<div class="join">
+  <div class="wrap">
+    <div>
+      <h2>Sei von Anfang an dabei</h2>
+      <p>Lerne die Community kennen und stell deine Fragen direkt im Discord.</p>
+    </div>
+    <div>
+      <a class="btn" href="https://discord.gg/cbnZxhfWUc" target="_blank" rel="noopener">Discord beitreten <i>→</i></a>
+      <span class="url">discord.gg/cbnZxhfWUc</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="small">
+      <p>Hessen City ist ein unabhängiges Community-Projekt. Es steht in keiner Verbindung zu Rockstar Games, Take-Two oder staatlichen Stellen.</p>
+      <p>© 2026 Hessen City</p>
+    </div>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" aria-hidden="true" focusable="false"><text x="0" y="165" textLength="1000" lengthAdjust="spacingAndGlyphs"><tspan fill="#a066ff">HESSEN </tspan><tspan fill="#ffffff">CITY</tspan></text></svg>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},4000);
+})();
+</script>
+</body>
+</html>
